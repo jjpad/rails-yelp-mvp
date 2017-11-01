@@ -1,5 +1,3 @@
-<p id="notice"><%= notice %></p>
-
 <p>
   <strong>Name:</strong>
   <%= @restaurant.name %>
@@ -20,5 +18,15 @@
   <%= @restaurant.phone_number %>
 </p>
 
+<h3>Reviews</h3>
+<ul>
+  <% @restaurant.reviews.each do |review| %>
+    <li>
+      <%= review.content %>
+    </li>
+  <% end %>
+</ul>
+
+<%= link_to 'Add review', new_restaurant_review_path(@restaurant), class: 'btn btn-primary' %>
 <%= link_to 'Edit', edit_restaurant_path(@restaurant) %> |
 <%= link_to 'Back', restaurants_path %>
